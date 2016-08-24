@@ -8,8 +8,8 @@ function character(characterName, health, attackPower, counterAttackPower) {
 	this.counterAttackPower = counterAttackPower;
 }
 
-var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 10);
-var luke = new character('Luke Skywalker' , 100, 6, 10);
+var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
+var luke = new character('Luke Skywalker' , 100, 6, 37.5);
 var sidious = new character('Darth Sidious', 150, 6, 10);
 var maul = new character('Darth Maul', 180, 6, 10);
 var hero = 0;
@@ -53,6 +53,7 @@ document.onkeyup = function(event) {
 	console.log(event.which);
 
 // chooses players
+// when changing to clicks remove the if and point to one function
 if (playerInput === 'o'||playerInput === 'l'||playerInput === 's'||playerInput === 'm') {
 	
 	if (hero === 0) {
