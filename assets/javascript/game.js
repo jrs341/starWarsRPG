@@ -6,7 +6,7 @@ function character(characterName, health, attackPower, counterAttackPower) {
 	this.health = health;
 	this.attackPower = attackPower
 	this.counterAttackPower = counterAttackPower;
-	/*this.pickAttacker = function() {
+	/*this.attack = function() {
 		if (something true) {
 
 		} else {
@@ -27,15 +27,118 @@ var l = luke;
 var s = sidious;
 var m = maul;
 
-
+var fightSequenceArray = [];
 
 // should I embedd each function in the character object
-var attack = function(hero, villan) {
+function attack() {
+	var randomNum = Math.floor((Math.random() * 5)+1);
+	// var heroHealthNew = 0;
+	// var villanHealthNew =0;
+
+	// var heroHealth = fightSequenceArray[0].health;
+	// var villanHealth = fightSequenceArray[1].health;
+	// var villan2Health = fightSequenceArray[2].health;
+	// var villan3Health = fightSequenceArray[3].helath;
+
+	// var heroAttackPower = fightSequenceArray[0].attackPower;
+	// var villancounterAttackPower = fightSequenceArray[1].counterAttackPower;
+	// var villan2counterAttackPower = fightSequenceArray[2].counterAttackPower;
+
+	var test = fightSequenceArray[1].health - (fightSequenceArray[0].attackPower * randomNum);
+	fightSequenceArray[1].health = test;
+	// fightSequenceArray.splice(fightSequenceArray[1].helath, 1, test);
+	/*if (heroHealth !== 0) {
+
+	}*/
+
+	console.log(randomNum);
+	// console.log(fightSequenceArray[0].health);
+	// console.log(fightSequenceArray[1].helath);
+	console.log(test);
+	console.log(fightSequenceArray[1].health);
+}
+
+
+// choose a player
+// simulate mouse click
+
+function checkKey(e) {
+
+	e = e || window.event;
+
+	if (e.keyCode == '79') {
+		console.log('you chose Obi-Wan');
+		fightSequenceArray.push(obiWan);
+		return;
+
+	}
+
+	else if (e.keyCode == '76') {
+		console.log('you chose luke');
+		fightSequenceArray.push(luke);
+		return;
+	}
+
+	else if (e.keyCode == '83') {
+		console.log('you chose sidious');
+		fightSequenceArray.push(sidious);
+		return;
+	} 
+	 else if (e.keyCode == '77') {
+	 	console.log('you chose maul');
+	 	fightSequenceArray.push(maul);
+	 	return;
+	}
+
+	else if (e.keyCode == '65') {
+		console.log('you chose to attack');
+		attack();
+	} else {
+		console.log('please choose correct letter');
+	}
+	return;
+}
+
+function displayFightSequenceArray() {
+	for (i=0; i<fightSequenceArray.length; i++) {
+	console.log(fightSequenceArray[i]);
+}
+
+}
+function choiceSequence() {
+	
+	if (fightSequenceArray.length === 1){
+	console.log('choose your first opponent');
+	} 
+	else if (fightSequenceArray.length === 2) {
+	console.log('choose your second opponent');
+	} 
+	else if (fightSequenceArray.length === 3) {
+	console.log('last opponent');
+	} else {
+		return;
+	}
+}
+
+
+console.log('choose your character');
+
+document.onkeydown = function(event) {
+
+	// var e = String.fromCharCode(event.keyCode).toLowerCase();
+
+checkKey();
+
+displayFightSequenceArray();
+
+// choiceSequence();
+
 
 
 }
+// console.log('choose your first opponent');
 
-var pickAttacker = function(playerInput) {
+/*var pickAttacker = function(playerInput) {
 
 	if (playerInput === 'o') {
 		console.log(obiWan.name);
@@ -61,46 +164,7 @@ var opponentChoice = function(opponentChoice) {
 	} else {
 		console.log('choose opponent');
 	}
-}
-// choose a player
-// simulate mouse click
-
-function checkKey(e) {
-
-	e = e || window.event;
-
-	if (e.keyCode == '79') {
-		console.log('you chose Obi-Wan');
-	}
-
-	else if (e.keyCode == '76') {
-		console.log('you chose luke');
-	}
-
-	else if (e.keyCode == '83') {
-		console.log('you chose sidious');
-	} 
-	 else if (e.keyCode == '77') {
-	 	console.log('you chose maul');
-	}
-
-	else if (e.keyCode == '65') {
-		console.log('you chose to attack');
-	} else {
-		console.log('please choose correct letter');
-	}
-}
-
-console.log('choose your character');
-
-document.onkeydown = checkKey; {
-
-checkKey();
-
-
-}
-
-
+}*/
 
 // var playerInput = String.fromCharCode(event.keyCode).toLowerCase();
 	// console.log(event.which);
