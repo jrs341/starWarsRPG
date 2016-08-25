@@ -6,6 +6,13 @@ function character(characterName, health, attackPower, counterAttackPower) {
 	this.health = health;
 	this.attackPower = attackPower
 	this.counterAttackPower = counterAttackPower;
+	/*this.pickAttacker = function() {
+		if (something true) {
+
+		} else {
+			// something
+		}
+	};*/
 }
 
 var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
@@ -14,6 +21,19 @@ var sidious = new character('Darth Sidious', 150, 6, 10);
 var maul = new character('Darth Maul', 180, 6, 10);
 var hero = 0;
 var villan = 0;
+
+var o = obiWan;
+var l = luke;
+var s = sidious;
+var m = maul;
+
+
+
+// should I embedd each function in the character object
+var attack = function(hero, villan) {
+
+
+}
 
 var pickAttacker = function(playerInput) {
 
@@ -45,16 +65,49 @@ var opponentChoice = function(opponentChoice) {
 // choose a player
 // simulate mouse click
 
+function checkKey(e) {
+
+	e = e || window.event;
+
+	if (e.keyCode == '79') {
+		console.log('you chose Obi-Wan');
+	}
+
+	else if (e.keyCode == '76') {
+		console.log('you chose luke');
+	}
+
+	else if (e.keyCode == '83') {
+		console.log('you chose sidious');
+	} 
+	 else if (e.keyCode == '77') {
+	 	console.log('you chose maul');
+	}
+
+	else if (e.keyCode == '65') {
+		console.log('you chose to attack');
+	} else {
+		console.log('please choose correct letter');
+	}
+}
+
 console.log('choose your character');
 
-document.onkeyup = function(event) {
+document.onkeydown = checkKey; {
 
-	var playerInput = String.fromCharCode(event.keyCode).toLowerCase();
-	console.log(event.which);
+checkKey();
+
+
+}
+
+
+
+// var playerInput = String.fromCharCode(event.keyCode).toLowerCase();
+	// console.log(event.which);
 
 // chooses players
 // when changing to clicks remove the if and point to one function
-if (playerInput === 'o'||playerInput === 'l'||playerInput === 's'||playerInput === 'm') {
+/*if (playerInput === 'o'||playerInput === 'l'||playerInput === 's'||playerInput === 'm') {
 	
 	if (hero === 0) {
 		pickAttacker(playerInput);
@@ -79,8 +132,9 @@ if (playerInput === 'o'||playerInput === 'l'||playerInput === 's'||playerInput =
 	}
 } else if (playerInput === 'a') {
 		console.log('attack');
-	}
-}
+	} else {
+		console.log('please choose correct letter');
+	}*/
 
 
 
