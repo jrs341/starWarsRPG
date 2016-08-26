@@ -34,6 +34,7 @@ function attack() {
 		return;
 	}
 	else if (fightSequenceArray[1].health <= 0) {
+		fightSequenceArray.splice(1, 1);
 		console.log('choose next opponent');
 		return;
 
