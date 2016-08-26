@@ -1,0 +1,44 @@
+html, body {
+	height: 100%;
+	width: 960px;
+	background-image: url();
+} 
+
+body {
+	color: black;
+	font-family: 
+	border: 3px;
+	border-color: black;
+	padding: 10px;
+
+}
+
+header {
+	height: 50px;
+	text-align: right;
+	font-size: 30px;
+}
+
+.characterProfile {
+	height: 100px;
+	width: 150px;
+	display: inline-block;
+	background-color: blue;
+	margin: 10px;
+}
+
+.chosenPlayer {
+	height: 100px;
+	width: 150px;
+	/*background: none;*/
+	background-color: yellow;
+	margin: 10px;
+}
+
+.enemySection {
+	height: 100px;
+	width: 150px;
+	display: inline-block;
+	background-color: red;
+	margin: 10px;
+}
