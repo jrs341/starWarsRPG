@@ -1,5 +1,6 @@
 
 
+$(document).ready(function(){
 
 function character(characterName, health, attackPower, counterAttackPower) {
 	this.name = characterName;
@@ -19,6 +20,7 @@ var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
 var luke = new character('Luke Skywalker' , 100, 6, 37.5);
 var sidious = new character('Darth Sidious', 150, 6, 10);
 var maul = new character('Darth Maul', 180, 6, 10);
+var characters = ['Obi-Wan Kenobi', 'Luke Skywalker', 'Darth Sidious', 'Darth Maul'];
 var fightSequenceArray = [];
 
 // this function is in the checkKey functon
@@ -107,17 +109,71 @@ function choiceSequence() {
 	}
 }
 
-console.log('choose your character');
+for (var i = 0; i < characters.length; i++) {
+	var b = $('<button>');
+	b.addClass('characterButtons');
+	b.attr('data-let', characters[i]);
+	b.text(characters[i]);
 
-document.onkeydown = function(event) {
+	$('#buttons').append(b);
+}
 
-checkKey();
+$('.characterButtons').one('click', function() {
+	var playerChoice = $('.playerChoice').text($(this).data('let'));
+})
+
+$('')
+
+})
+
+
+	
+
+// console.log('choose your character');
 
 // displayFightSequenceArray();
 
+/*$('#obi').one('click', function() {
+	var o = $('<button id="obi">obi</button>');
+	$('.chosenPlayer').append(o);
+	console.log('you chose Obi-Wan');
+	fightSequenceArray.push(obiWan);
+	
+})
+
+	$('#luke').one('click', function() {
+	var l = $('<button id="luke">luke</button>');
+	$('.chosenPlayer').append(l);
+	console.log('you chose luke');
+	fightSequenceArray.push(luke);
+})
+
+	$('#sidious').one('click', function() {
+	var s = $('<button id="sidious">sidious</button>');
+	$('.chosenPlayer').append(s);
+	console.log('you chose sidious');
+	fightSequenceArray.push(sidious);
+})
+
+	$('#maul').one('click', function() {
+	var m = $('<button id="maul">maul</button>');
+	$('.chosenPlayer').append(m);
+	console.log('you chose maul');
+	fightSequenceArray.push(maul);
+})
+
+
+
+// document.onkeydown = function(event) {
+
+// checkKey();
+
+
+
 // choiceSequence();
 
-}
+
+})*/
 
 
 

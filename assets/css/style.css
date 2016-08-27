@@ -19,7 +19,11 @@ header {
 	font-size: 30px;
 }
 
-.characterProfile {
+#buttons {
+
+}
+
+.characterButtons {
 	height: 100px;
 	width: 150px;
 	display: inline-block;
@@ -27,12 +31,37 @@ header {
 	margin: 10px;
 }
 
-.chosenPlayer {
+#luke {
 	height: 100px;
 	width: 150px;
-	/*background: none;*/
-	background-color: yellow;
+	display: inline-block;
+	background-color: green;
 	margin: 10px;
+}
+
+#sidious {
+	height: 100px;
+	width: 150px;
+	display: inline-block;
+	background-color: orange;
+	margin: 10px;
+}
+
+#maul {
+	height: 100px;
+	width: 150px;
+	display: inline-block;
+	background-color: blue;
+	margin: 10px;
+}
+
+.playerChoice {
+	height: 100px;
+	width: 150px;
+	text-align: center;
+	/*background: none;*/
+	background-color: yellow;*/
+	margin: 10px;*/
 }
 
 .enemySection {
@@ -41,4 +70,13 @@ header {
 	display: inline-block;
 	background-color: red;
 	margin: 10px;
+}
+
+.defender {
+	height: 100px;
+	width: 150px;
+	/*background: none;*/
+	background-color: yellow;
+	margin: 10px;
+
 }
