@@ -1,30 +1,116 @@
 
-
-$(document).ready(function(){
-
 function character(characterName, health, attackPower, counterAttackPower) {
 	this.name = characterName;
 	this.health = health;
 	this.attackPower = attackPower
 	this.counterAttackPower = counterAttackPower;
-	/*this.attack = function() {
-		if (something true) {
-
-		} else {
-			// something
-		}
-	};*/
 }
 
 var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
 var luke = new character('Luke Skywalker' , 100, 6, 37.5);
 var sidious = new character('Darth Sidious', 150, 6, 10);
 var maul = new character('Darth Maul', 180, 6, 10);
-var characters = ['Obi-Wan Kenobi', 'Luke Skywalker', 'Darth Sidious', 'Darth Maul'];
+
+var characters = [];
+characters.push(obiWan, luke, sidious, maul);
+
 var fightSequenceArray = [];
+var playerChoice = 0;
 
 // this function is in the checkKey functon
-function figthSequence() {
+
+function displayFightSequenceArray() {
+	for (i=0; i<fightSequenceArray.length; i++) {
+	console.log(fightSequenceArray[i]);
+	}
+}
+
+console.log(fightSequenceArray);
+
+$(document).ready(function(){
+
+for (var i = 0; i < characters.length; i++) {
+	var b = $('<button>');
+	b.addClass('characterList');
+	b.attr(characters[i]); 
+	b.text(characters[i].name);
+
+	$('#buttons').append(b);
+}
+
+$('.characterList').one('click', function() {
+	playerChoice = $('<div class = "playerChoice" >').text(this.name);
+	console.log(this);
+	// ($(this).data('let'));
+	$('#obi').append(playerChoice);
+	fightSequenceArray.push(this);
+	displayFightSequenceArray();
+	return someFunction();	
+})
+
+function someFunction()	{
+
+	if (fightSequenceArray.length == 1) {
+		console.log("Choose Your First Opponent");
+	} else {
+		console.log('keep trying');
+	}
+}
+
+/*if (fightSequenceArray.length != 1) {
+
+	
+
+$('#obi').one('click', function() {
+	var o = $('<button id="obi">obi</button>');
+	$('.playerChoice').append(o);
+	console.log('you chose Obi-Wan');
+	fightSequenceArray.push(obiWan);
+	console.log(fightSequenceArray);
+	return displayFightSequenceArray();
+})
+
+$('#luke').one('click', function() {
+	var l = $('<button id="luke">luke</button>');
+	$('.playerChoice').append(l);
+	console.log('you chose luke');
+	fightSequenceArray.push(luke);
+	console.log(fightSequenceArray);
+	return displayFightSequenceArray();
+})
+
+$('#sidious').one('click', function() {
+	var s = $('<button id="sidious">sidious</button>');
+	$('.playerChoice').append(s);
+	console.log('you chose sidious');
+	fightSequenceArray.push(sidious);
+	console.log(fightSequenceArray);
+	return displayFightSequenceArray();
+})
+
+	$('#maul').one('click', function() {
+	var m = $('<button id="maul">maul</button>');
+	$('.playerChoice').append(m);
+	console.log('you chose maul');
+	fightSequenceArray.push(maul);
+	console.log(fight);
+	return displayFightSequenceArray();
+})
+
+	
+
+} else {
+	console.log("working?");
+}*/
+
+})
+
+console.log(fightSequenceArray.length);
+
+
+
+
+/*function figthSequence() {
 
 	var randomNum = Math.floor((Math.random() * 5)+1);
 	var attack = fightSequenceArray[1].health - (fightSequenceArray[0].attackPower * randomNum);
@@ -50,12 +136,12 @@ function figthSequence() {
 	console.log(fightSequenceArray[1].health);
 	console.log(fightSequenceArray[0].health);
 	}
-}
+}*/
 
 // choose a player
 // simulate mouse click
 
-function checkKey(e) {
+/*function checkKey(e) {
 
 	e = e || window.event;
 
@@ -86,15 +172,12 @@ function checkKey(e) {
 		console.log('please choose correct letter');
 	}
 	return;
-}
+}*/
 
-function displayFightSequenceArray() {
-	for (i=0; i<fightSequenceArray.length; i++) {
-	console.log(fightSequenceArray[i]);
-}
 
-}
-function choiceSequence() {
+
+
+/*function choiceSequence() {
 	
 	if (fightSequenceArray.length === 1){
 	console.log('choose your first opponent');
@@ -107,24 +190,11 @@ function choiceSequence() {
 	} else {
 		return;
 	}
-}
+}*/
 
-for (var i = 0; i < characters.length; i++) {
-	var b = $('<button>');
-	b.addClass('characterButtons');
-	b.attr('data-let', characters[i]);
-	b.text(characters[i]);
 
-	$('#buttons').append(b);
-}
 
-$('.characterButtons').one('click', function() {
-	var playerChoice = $('.playerChoice').text($(this).data('let'));
-})
-
-$('')
-
-})
+// $('')
 
 
 	

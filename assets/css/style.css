@@ -20,48 +20,33 @@ header {
 }
 
 #buttons {
+	display: inline-block;
+
 
 }
 
-.characterButtons {
+.characterList {
 	height: 100px;
 	width: 150px;
-	display: inline-block;
 	background-color: blue;
 	margin: 10px;
 }
 
-#luke {
+#obi {
 	height: 100px;
 	width: 150px;
 	display: inline-block;
-	background-color: green;
-	margin: 10px;
-}
-
-#sidious {
-	height: 100px;
-	width: 150px;
-	display: inline-block;
-	background-color: orange;
-	margin: 10px;
-}
-
-#maul {
-	height: 100px;
-	width: 150px;
-	display: inline-block;
-	background-color: blue;
+	background-color: none;
 	margin: 10px;
 }
 
 .playerChoice {
 	height: 100px;
 	width: 150px;
-	text-align: center;
+	/*text-align: center;*/
 	/*background: none;*/
-	background-color: yellow;*/
-	margin: 10px;*/
+	background-color: yellow;
+	/*margin: 10px;*/
 }
 
 .enemySection {
