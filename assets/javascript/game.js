@@ -44,7 +44,7 @@ $('.characterList').one('click', function() {
 	fightSequenceArray.push(this);
 	displayFightSequenceArray();
 	$('#buttons').attr('id', 'buttonsNone');
-	return someFunction();	
+	someFunction();	
 })
 
 function someFunction()	{
@@ -61,14 +61,16 @@ function someFunction()	{
 	}
 
 	if (fightSequenceArray.length == 1) {
-		// need to move remaining characters to Enemy
 		// for i = to something but not equal to element in fightSequenceArray;
 		console.log("Choose Your First Opponent");
-	}
+
+		$('.characterList').one('click', function() {
+		playerChoice = $('<div class = "playerChoice" >').text(this.name);
+		$('#obi').append(playerChoice);
+		fightSequenceArray.push(this);
+		displayFightSequenceArray();
+		$('#buttons').attr('id', 'buttonsNone');
 }
-
-		
-
 
 })
 
