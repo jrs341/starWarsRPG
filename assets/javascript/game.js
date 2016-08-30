@@ -17,19 +17,9 @@ characters.push(obiWan, luke, sidious, maul);
 var fightSequenceArray = [];
 var playerChoice = 0;
 
-// this function is in the checkKey functon
+function displayCharacters () {
 
-function displayFightSequenceArray() {
-	for (i=0; i<fightSequenceArray.length; i++) {
-	console.log(fightSequenceArray[i]);
-	}
-}
-
-console.log(fightSequenceArray);
-
-$(document).ready(function() {
-
-for (var i = 0; i < characters.length; i++) {
+	for (var i = 0; i < characters.length; i++) {
 	var b = $('<button>');
 	b.addClass('characterList');
 	b.attr(characters[i]); 
@@ -46,6 +36,8 @@ $('.characterList').one('click', function() {
 	$('#buttons').attr('id', 'buttonsNone');
 	someFunction();	
 })
+
+}
 
 function someFunction()	{
 
@@ -65,12 +57,32 @@ function someFunction()	{
 		console.log("Choose Your First Opponent");
 
 		$('.characterList').one('click', function() {
-		playerChoice = $('<div class = "playerChoice" >').text(this.name);
-		$('#obi').append(playerChoice);
+		defender = $('<div class = "defender" >').text(this.name);
+		$('.defender').append(defender);
 		fightSequenceArray.push(this);
 		displayFightSequenceArray();
-		$('#buttons').attr('id', 'buttonsNone');
+		$(this).remove();
+		})
+	}
 }
+
+function displayFightSequenceArray() {
+	for (i=0; i<fightSequenceArray.length; i++) {
+	console.log(fightSequenceArray[i]);
+	}
+}
+
+
+
+console.log(fightSequenceArray);
+
+$(document).ready(function() {
+
+	displayCharacters();
+
+
+
+
 
 })
 
