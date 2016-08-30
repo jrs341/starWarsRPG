@@ -43,6 +43,7 @@ $('.characterList').one('click', function() {
 	$('#obi').append(playerChoice);
 	fightSequenceArray.push(this);
 	displayFightSequenceArray();
+	$('#buttons').attr('id', 'buttonsNone');
 	return someFunction();	
 })
 
@@ -56,9 +57,7 @@ function someFunction()	{
 
 		if (characters[i].name != fightSequenceArray[0].name) {
 			$('#enemySection').append(b);
-		} else {
-		console.log('keep trying');
-		}
+		} 
 	}
 
 	if (fightSequenceArray.length == 1) {
