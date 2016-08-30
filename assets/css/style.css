@@ -49,12 +49,12 @@ header {
 	/*margin: 10px;*/
 }
 
-.enemySection {
-	height: 100px;
-	width: 150px;
+#enemySection {
+	/*height: 100px;*/
+	/*width: 150px;*/
 	display: inline-block;
-	background-color: red;
-	margin: 10px;
+	/*background-color: red;*/
+	/*margin: 10px;*/
 }
 
 .defender {

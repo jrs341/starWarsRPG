@@ -27,7 +27,7 @@ function displayFightSequenceArray() {
 
 console.log(fightSequenceArray);
 
-$(document).ready(function(){
+$(document).ready(function() {
 
 for (var i = 0; i < characters.length; i++) {
 	var b = $('<button>');
@@ -40,8 +40,6 @@ for (var i = 0; i < characters.length; i++) {
 
 $('.characterList').one('click', function() {
 	playerChoice = $('<div class = "playerChoice" >').text(this.name);
-	console.log(this);
-	// ($(this).data('let'));
 	$('#obi').append(playerChoice);
 	fightSequenceArray.push(this);
 	displayFightSequenceArray();
@@ -50,12 +48,32 @@ $('.characterList').one('click', function() {
 
 function someFunction()	{
 
-	if (fightSequenceArray.length == 1) {
-		console.log("Choose Your First Opponent");
-	} else {
+	for (var i = 0; i < characters.length; i++) {
+		var b = $('<button>');
+		b.addClass('characterList');
+		b.attr(characters[i]); 
+		b.text(characters[i].name);
+
+		if (characters[i].name != fightSequenceArray[0].name) {
+			$('#enemySection').append(b);
+		} else {
 		console.log('keep trying');
+		}
+	}
+
+	if (fightSequenceArray.length == 1) {
+		// need to move remaining characters to Enemy
+		// for i = to something but not equal to element in fightSequenceArray;
+		console.log("Choose Your First Opponent");
 	}
 }
+
+		
+
+
+})
+
+console.log(fightSequenceArray.length);
 
 /*if (fightSequenceArray.length != 1) {
 
@@ -103,9 +121,7 @@ $('#sidious').one('click', function() {
 	console.log("working?");
 }*/
 
-})
 
-console.log(fightSequenceArray.length);
 
 
 
