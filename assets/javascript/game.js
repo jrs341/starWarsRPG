@@ -1,5 +1,5 @@
 
-function character(characterName, health, attackPower, counterAttackPower) {
+function character(characterName, health, attackPower, counterAttackPower, img) {
 	this.name = characterName;
 	this.health = health;
 	this.attackPower = attackPower
@@ -7,7 +7,7 @@ function character(characterName, health, attackPower, counterAttackPower) {
 }
 
 var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
-var luke = new character('Luke Skywalker' , 100, 6, 37.5);
+var luke = new character('Luke Skywalker' , 100, 6, 37.5, src='../assets/images/luke.ico');
 var sidious = new character('Darth Sidious', 150, 6, 10);
 var maul = new character('Darth Maul', 180, 6, 10);
 
@@ -22,6 +22,7 @@ var opponent = 0;
 
 function displayCharacters () {
 
+	// do in need a map method here?
 	for (var i = 0; i < characters.length; i++) {
 	var b = $('<button>');
 	b.addClass('characterList');
@@ -32,11 +33,13 @@ function displayCharacters () {
 	}
 
 	$('.characterList').one('click', function() {
-	playerChoice = $('<div class = "playerChoice" >').text(this.name);
-	$('#obi').append(playerChoice);
+	playerChoice = $('.playerChoice').text(this.name);
+	$('.playerChoice').append(playerChoice);
 	fightSequenceArray.push(this);
 	// displayFightSequenceArray();
-	$('#buttons').attr('id', 'buttonsNone');
+	// $('#buttons').attr('id', 'buttonsNone');
+	$(this).remove();
+	// $('p').addClass('noDisplay' 'display');
 	someFunction();	
 	return player = this;
 	})
@@ -66,8 +69,8 @@ function someFunction()	{
 		displayFightSequenceArray();
 		$(this).remove();
 		return opponent = this;
-		var keys = $.map(fightSequenceArray);
-		})
+		
+	})
 	}
 }
 
@@ -110,6 +113,8 @@ function figthSequence() {
 }
 
 console.log(fightSequenceArray);
+
+
 
 $(document).ready(function() {
 
