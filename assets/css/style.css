@@ -1,7 +1,11 @@
 html, body {
 	height: 100%;
 	width: 960px;
-	background-image: url();
+	background: url('../images/suns.jpg') no-repeat   center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 } 
 
 body {
@@ -62,7 +66,7 @@ header {
 }
 
 #attack{
-	
+
 }
 
 .defender {
