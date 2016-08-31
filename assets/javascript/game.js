@@ -29,9 +29,9 @@ function displayCharacters () {
 	b.text(characters[i].name);
 
 	$('#buttons').append(b);
-}
+	}
 
-$('.characterList').one('click', function() {
+	$('.characterList').one('click', function() {
 	playerChoice = $('<div class = "playerChoice" >').text(this.name);
 	$('#obi').append(playerChoice);
 	fightSequenceArray.push(this);
@@ -39,8 +39,7 @@ $('.characterList').one('click', function() {
 	$('#buttons').attr('id', 'buttonsNone');
 	someFunction();	
 	return player = this;
-})
-
+	})
 }
 
 function someFunction()	{
@@ -109,8 +108,6 @@ function figthSequence() {
 
 	})
 }
-
-
 
 console.log(fightSequenceArray);
 
