@@ -60,12 +60,16 @@ p {
 }
 
 .playerChoice {
-	height: 100px;
-	width: 150px;
+	height: 260px;
+	width: 200px;
 	/*text-align: center;*/
 	/*background: none;*/
-	background-color: yellow;
+	background-image: url('../images/maul.png');
 	/*margin: 10px;*/
+}
+
+#test {
+
 }
 
 #attack{

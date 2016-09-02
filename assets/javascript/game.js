@@ -4,12 +4,13 @@ function character(characterName, health, attackPower, counterAttackPower, img) 
 	this.health = health;
 	this.attackPower = attackPower
 	this.counterAttackPower = counterAttackPower;
+	this.img = img;
 }
 
-var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5);
-var luke = new character('Luke Skywalker' , 100, 6, 37.5, src='../assets/images/luke.ico');
-var sidious = new character('Darth Sidious', 150, 6, 10);
-var maul = new character('Darth Maul', 180, 6, 10);
+var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, '../images/obi.jpeg');
+var luke = new character('Luke Skywalker' , 100, 6, 37.5, '../images/luke.ico');
+var sidious = new character('Darth Sidious', 150, 6, 10, '../images/sidious.ico');
+var maul = new character('Darth Maul', 180, 6, 10, '../images/maul.png');
 
 var characters = [];
 characters.push(obiWan, luke, sidious, maul);
@@ -24,24 +25,24 @@ function displayCharacters () {
 
 	// do in need a map method here?
 	for (var i = 0; i < characters.length; i++) {
-	var b = $('<button>');
-	b.addClass('characterList');
-	b.attr(characters[i]); 
-	b.text(characters[i].name);
-
-	$('#buttons').append(b);
+		var b = $('<button>');
+		b.addClass('characterList');
+		b.attr('id', i); 
+		b.append('<img src=" '+ characters[i].img +' "/>');
+		b.text(characters[i].name);
+		 $('#buttons').append(b);
 	}
 
-	$('.characterList').one('click', function() {
-	playerChoice = $('.playerChoice').text(this.name);
-	$('.playerChoice').append(playerChoice);
-	fightSequenceArray.push(this);
-	// displayFightSequenceArray();
-	// $('#buttons').attr('id', 'buttonsNone');
-	$(this).remove();
-	// $('p').addClass('noDisplay' 'display');
-	someFunction();	
-	return player = this;
+	$('.characterList').on('click', function() {
+		playerChoice = $('.playerChoice').text(this.name);
+		$('.playerChoice').append(playerChoice);
+		fightSequenceArray.push(this);
+		// displayFightSequenceArray();
+		// $('#buttons').attr('id', 'buttonsNone');
+		$(this).remove();
+		// $('p').addClass('noDisplay' 'display');
+		someFunction();	
+		return player = this;
 	})
 }
 
@@ -50,7 +51,7 @@ function someFunction()	{
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
-		b.attr(characters[i]); 
+		// b.attr('id' i); 
 		b.text(characters[i].name);
 
 		if (characters[i].name != fightSequenceArray[0].name) {
@@ -117,6 +118,8 @@ console.log(fightSequenceArray);
 
 
 $(document).ready(function() {
+
+	$('#test').prepend('<img src="suns.jpg"/>')
 
 	displayCharacters();
 
