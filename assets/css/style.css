@@ -47,8 +47,9 @@ p {
 .characterList {
 	height: 260px;
 	width: 200px;
-	/*background-color: none;*/
-	background-image: url();
+	background: transparent;
+	background-repeat: no-repeat;
+	border: none;
 	margin: 10px;
 }
 
@@ -65,7 +66,7 @@ p {
 	width: 200px;
 	/*text-align: center;*/
 	/*background: none;*/
-	background-image: url('../images/maul.png');
+	/*background-image: url('../images/maul.png');*/
 	/*margin: 10px;*/
 }
 

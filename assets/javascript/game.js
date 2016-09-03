@@ -17,32 +17,26 @@ characters.push(obiWan, luke, sidious, maul);
 
 var fightSequenceArray = [];
 
-var playerChoice = 0;
-var player = 0;
-var opponent = 0;
+// var playerChoice = 0;
+// var player = 0;
+// var opponent = 0;
 
 function displayCharacters () {
 
-	// do in need a map method here?
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
-		// b.attr('id', i); 
+		b.attr('id', i); 
 		b.css('background-image', 'url(" '+ characters[i].img +'  ")');
 		b.text(characters[i].name);
 		 $('#buttons').append(b);
 	}
 
 	$('.characterList').on('click', function() {
-		playerChoice = $('.playerChoice').text(this.name);
-		$('.playerChoice').append(playerChoice);
-		fightSequenceArray.push(this);
-		// displayFightSequenceArray();
-		// $('#buttons').attr('id', 'buttonsNone');
+		
 		$(this).remove();
-		// $('p').addClass('noDisplay' 'display');
+		
 		someFunction();	
-		return player = this;
 	})
 }
 
@@ -152,5 +146,12 @@ console.log(fightSequenceArray.length);
 	console.log(fightSequenceArray[0].health);*/
 
 
+// playerChoice = $('.playerChoice').text(this.name);
+		// $('.playerChoice').appendTo(playerChoice);
+		// fightSequenceArray.push(this);
 
+		// displayFightSequenceArray();
+		// $('#buttons').attr('id', 'buttonsNone');
+
+		// $('p').addClass('noDisplay' 'display');
 
