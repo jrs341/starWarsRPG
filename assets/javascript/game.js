@@ -7,10 +7,10 @@ function character(characterName, health, attackPower, counterAttackPower, img) 
 	this.img = img;
 }
 
-var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, '../images/obi.jpeg');
-var luke = new character('Luke Skywalker' , 100, 6, 37.5, '../images/luke.ico');
-var sidious = new character('Darth Sidious', 150, 6, 10, '../images/sidious.ico');
-var maul = new character('Darth Maul', 180, 6, 10, '../images/maul.png');
+var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, 'assets/images/obi.jpeg');
+var luke = new character('Luke Skywalker' , 100, 6, 37.5, 'assets/images/luke.ico');
+var sidious = new character('Darth Sidious', 150, 6, 10, 'assets/images/sidious.ico');
+var maul = new character('Darth Maul', 180, 6, 10, 'assets/images/maul.png');
 
 var characters = [];
 characters.push(obiWan, luke, sidious, maul);
@@ -27,8 +27,8 @@ function displayCharacters () {
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
-		b.attr('id', i); 
-		b.append('<img src=" '+ characters[i].img +' "/>');
+		// b.attr('id', i); 
+		b.css('background-image', 'url(" '+ characters[i].img +'  ")');
 		b.text(characters[i].name);
 		 $('#buttons').append(b);
 	}
@@ -118,8 +118,6 @@ console.log(fightSequenceArray);
 
 
 $(document).ready(function() {
-
-	$('#test').prepend('<img src="suns.jpg"/>')
 
 	displayCharacters();
 
