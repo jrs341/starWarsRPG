@@ -32,7 +32,7 @@ p {
 }
 
 #buttons {
-	/*display: inline-block;*/
+	margin: 10px;
 }
 
 .noDisplay {
@@ -50,7 +50,8 @@ p {
 	background: transparent;
 	background-repeat: no-repeat;
 	border: none;
-	margin: 10px;
+
+
 }
 
 #obi {
@@ -82,6 +83,6 @@ p {
 	height: 100px;
 	width: 150px;
 	/*background: none;*/
-	background-color: red;
+	/*background-color: red;*/
 	/*margin: 10px;*/
 }

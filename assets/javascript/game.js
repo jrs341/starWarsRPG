@@ -16,6 +16,7 @@ var characters = [];
 characters.push(obiWan, luke, sidious, maul);
 
 var fightSequenceArray = [];
+var tempArray = [];
 
 // var playerChoice = 0;
 // var player = 0;
@@ -30,14 +31,14 @@ function displayCharacters () {
 		b.css('background-image', 'url(" '+ characters[i].img +'  ")');
 		b.text(characters[i].name);
 		 $('#buttons').append(b);
-	}
+	}	
+}
 
-	$('.characterList').on('click', function() {
-		
-		$(this).remove();
-		
-		someFunction();	
-	})
+function playerID() {
+	if (clickedID === 0) {
+		$('.playerChoice').append(obiWan.name);
+		console.log(obiWan.name);
+	}
 }
 
 function someFunction()	{
@@ -63,7 +64,6 @@ function someFunction()	{
 		fightSequenceArray.push(this);
 		displayFightSequenceArray();
 		$(this).remove();
-		return opponent = this;
 		
 	})
 	}
@@ -113,13 +113,34 @@ console.log(fightSequenceArray);
 
 $(document).ready(function() {
 
+
 	displayCharacters();
+
+	$('.characterList').on('click', function() {
+		var clickedID = this.id;
+		fightSequenceArray.push(this);
+		$(this).appendTo('.playerChoice');
+
+		if (fightSequenceArray.length === 2) {
+			$(this).appendTo('.defender');
+			console.log(fightSequenceArray);
+		} 
+
+		if (this.id === 0) {
+			tempArray.push(obiWan);
+		}
+
+	})
 
 	figthSequence();
 
 })
 
 console.log(fightSequenceArray.length);
+
+// $( "button" ).click(function() {
+  // $( this ).replaceWith( "<div>" + $( this ).text() + "</div>" );
+// });
 
 /*var randomNum = Math.floor((Math.random() * 5)+1);
 	var attack = fightSequenceArray[1].health - (fightSequenceArray[0].attackPower * randomNum);
