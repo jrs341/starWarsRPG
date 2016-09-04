@@ -41,38 +41,29 @@ function playerID() {
 	}
 }
 
-function someFunction()	{
-
-	for (var i = 0; i < characters.length; i++) {
-		var b = $('<button>');
-		b.addClass('characterList');
-		// b.attr('id' i); 
-		b.text(characters[i].name);
-
-		if (characters[i].name != fightSequenceArray[0].name) {
-			$('#enemySection').append(b);
-		} 
-	}
-
-	if (fightSequenceArray.length == 1) {
-		
-		console.log("Choose Your First Opponent");
-
-		$('.characterList').one('click', function() {
-		defender = $('<div class = "defender" >').text(this.name);
-		$('.defender').append(defender);
+function chooseCharacters()	{
+	$('.characterList').on('click', function() {
 		fightSequenceArray.push(this);
-		displayFightSequenceArray();
-		$(this).remove();
-		
-	})
-	}
-}
 
-function displayFightSequenceArray() {
-	for (i=0; i<fightSequenceArray.length; i++) {
-	console.log(fightSequenceArray[i]);
-	}
+		if (fightSequenceArray.length === 1) {
+			$(this).appendTo('.playerChoice');
+		} else if (fightSequenceArray.length === 2) {
+			$(this).appendTo('.defender');
+		} else {
+			console.log('please choose attack or reset');
+		}
+
+		if (this.id == 0) {
+			tempArray.push(obiWan);
+		} else if (this.id == 1) {
+			tempArray.push(luke);
+		} else if (this.id == 2) {
+			tempArray.push(sidious);
+		} else { 
+			tempArray.push(maul);
+		}
+		console.log(tempArray);
+	})	
 }
 
 function figthSequence() {
@@ -116,27 +107,14 @@ $(document).ready(function() {
 
 	displayCharacters();
 
-	$('.characterList').on('click', function() {
-		var clickedID = this.id;
-		fightSequenceArray.push(this);
-		$(this).appendTo('.playerChoice');
-
-		if (fightSequenceArray.length === 2) {
-			$(this).appendTo('.defender');
-			console.log(fightSequenceArray);
-		} 
-
-		if (this.id === 0) {
-			tempArray.push(obiWan);
-		}
-
-	})
+	chooseCharacters();
 
 	figthSequence();
 
 })
 
 console.log(fightSequenceArray.length);
+console.log(fightSequenceArray);
 
 // $( "button" ).click(function() {
   // $( this ).replaceWith( "<div>" + $( this ).text() + "</div>" );
