@@ -1,6 +1,5 @@
 html, body {
 	height: 100%;
-	/*width: 960px;*/
 	background: url('../images/suns.jpg') no-repeat   center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -16,8 +15,6 @@ body {
 }
 
 header {
-	/*height: 30px;*/
-	/*text-align: right;*/
 	font-size: 30px;
 	color: white;
 	text-align: center;
@@ -32,7 +29,7 @@ p {
 }
 
 #buttons {
-	margin: 10px;
+	border: none;
 }
 
 .noDisplay {
@@ -40,49 +37,30 @@ p {
 }
 
 .display {
-	display: inline-block;
-	
+	display: inline-block;	
 }
 
 .characterList {
-	height: 260px;
+	height: 300px;
 	width: 200px;
+	margin: 20px;
 	background: transparent;
 	background-repeat: no-repeat;
+	background-position: -10px bottom;
 	border: none;
-
-
-}
-
-#obi {
-	height: 100px;
-	width: 150px;
-	display: inline-block;
-	background-color: none;
-	margin: 10px;
+	vertical-align: text-top;
+	padding-bottom: 250px;
+	color: yellow;
 }
 
 .playerChoice {
-	height: 260px;
-	width: 200px;
-	/*text-align: center;*/
-	/*background: none;*/
-	/*background-image: url('../images/maul.png');*/
-	/*margin: 10px;*/
 }
 
 #test {
-
 }
 
 #attack{
-
 }
 
 .defender {
-	height: 100px;
-	width: 150px;
-	/*background: none;*/
-	/*background-color: red;*/
-	/*margin: 10px;*/
 }
