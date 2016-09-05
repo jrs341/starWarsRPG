@@ -18,12 +18,7 @@ characters.push(obiWan, luke, sidious, maul);
 var fightSequenceArray = [];
 var tempArray = [];
 
-// var playerChoice = 0;
-// var player = 0;
-// var opponent = 0;
-
 function displayCharacters () {
-
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
@@ -32,13 +27,6 @@ function displayCharacters () {
 		b.text(characters[i].name);
 		 $('#buttons').append(b);
 	}	
-}
-
-function playerID() {
-	if (clickedID === 0) {
-		$('.playerChoice').append(obiWan.name);
-		console.log(obiWan.name);
-	}
 }
 
 function chooseCharacters()	{
@@ -70,51 +58,39 @@ function figthSequence() {
 
 	$('#attack').on('click', function() {
 
-	var randomNum = Math.floor((Math.random() * 5)+1);
-	var attack = opponent.health - (player.attackPower * randomNum);
-	opponent.health = attack;
+		var randomNum = Math.floor((Math.random() * 5)+1);
+		var attack = tempArray[1].health - (tempArray[0].attackPower * randomNum);
+		tempArray[1].health = attack;
 
-	if (player.health <= 0) {
-		console.log('You Lost');
-		return;
-	}
-	else if (opponent.health <= 0) {
-		fightSequenceArray.splice(1, 1);
-		console.log('choose next opponent');
-		return;
+		var randomNum2 = Math.floor((Math.random() * 5) +1);
+		var counterAttack = tempArray[0].health - (tempArray[1].attackPower * randomNum2);
+		tempArray[0].health = counterAttack;
 
-	} else {
-	
-	var randomNum2 = Math.floor((Math.random() * 5) +1);
-	var counterAttack = fightSequenceArray[0].health - (fightSequenceArray[1].attackPower * randomNum2);
-	fightSequenceArray[0].health = counterAttack;
+		console.log(tempArray[0].health);
+		console.log(tempArray[1].health);
 
-	console.log(randomNum);
-	console.log(attack);
-	console.log(fightSequenceArray[1].health);
-	console.log(fightSequenceArray[0].health);
-	}
+		if (tempArray[0].health <= 0) {
+			console.log('You Lost');
+			return;
+		}
+		else if (tempArray[1].health <= 0) {
+			fightSequenceArray.splice(1, 1);
+			console.log('choose next opponent');
+			return;
 
+		} 
 	})
 }
 
-console.log(fightSequenceArray);
-
-
-
 $(document).ready(function() {
-
 
 	displayCharacters();
 
 	chooseCharacters();
 
 	figthSequence();
-
 })
 
-console.log(fightSequenceArray.length);
-console.log(fightSequenceArray);
 
 // $( "button" ).click(function() {
   // $( this ).replaceWith( "<div>" + $( this ).text() + "</div>" );
