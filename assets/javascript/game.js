@@ -44,8 +44,9 @@ function displayCharacters () {
 		 $('.dropContent').append(li);
 	}
 }
+
 function displayStats () {
-	$('.characterList').hover(function(){
+	$('.characterList').mouseenter(function(){
 
 		$('ul').removeClass('noDisplay');
 
@@ -70,7 +71,13 @@ function displayStats () {
 			$('ul li:eq(2)').append('Attack Power: ' + maul.attackPower);
 			$('ul li:eq(3)').append('Counter Attack Power: ' + maul.counterAttackPower);
 		}
-	})	
+	})
+
+	$('.characterList').mouseleave(function(){
+
+		$('ul').addClass('noDisplay');
+		$('ul li').empty();
+	})
 }
 
 function chooseCharacters()	{
