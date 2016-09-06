@@ -143,6 +143,7 @@ function figthSequence() {
 			tempArray.splice(1, 1);
 			fightSequenceArray.splice(1,1);
 			$('.defender').empty();
+			$('#defenderStatus').addClass('noDisplayStatusDefender');
 			console.log('choose next opponent');
 			return;
 		} 
