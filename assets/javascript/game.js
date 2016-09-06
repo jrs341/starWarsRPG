@@ -62,7 +62,8 @@ function chooseCharacters()	{
 		} else { 
 			tempArray.push(maul);
 		}
-		console.log(tempArray);
+
+		$('p').removeClass('noDisplay');
 
 		if (fightSequenceArray.length === 1) {
 			$(this).appendTo('.playerChoice');

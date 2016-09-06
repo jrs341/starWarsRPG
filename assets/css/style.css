@@ -29,27 +29,29 @@ p {
 }
 
 #buttons {
-	border: none;
+	border: none;	
 }
 
-.dropDown {
+/*.dropDown {
 
-}
+}*/
 
-.dropContent {
+/*.dropContent {
 
-}
+}*/
 
-.dropItems {
-	
-}
+/*.dropItems {
+
+}*/
 
 .noDisplay {
 	display: none;
+	height: 20px;
 }
 
 .display {
-	display: inline-block;	
+	height: 20px;
+	text-align: center;
 }
 
 .characterList {
@@ -65,13 +67,31 @@ p {
 	color: yellow;
 }
 
+.characterList:focus, .characterList:active, .characterList.active, .characterList:focus:active {
+  	background-image: none;
+  	outline: none;
+    -webkit-box-shadow: none;
+  	box-shadow: none;
+}
+
 .playerChoice {
 }
 
-#test {
+#attack{
+	position: fixed;
+	margin-left: 340px;
+	height: 50px;
+	width: 50px;
+	border: none;
+	background-color: red;
+	border-radius: 100%;
 }
 
-#attack{
+#attack:focus, #attack:active, #attack.active, #attack:focus:active {
+  	background-image: none;
+  	outline: none;
+    -webkit-box-shadow: none;
+  	box-shadow: none;
 }
 
 .defender {
