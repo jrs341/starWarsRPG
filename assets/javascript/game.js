@@ -108,7 +108,11 @@ function chooseCharacters()	{
 		} else {
 			console.log('please choose attack or reset');
 		}
-	})	
+
+		$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
+		$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
+		$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);	
+	})
 }
 
 function figthSequence() {
@@ -123,9 +127,6 @@ function figthSequence() {
 		var counterAttack = tempArray[0].health - (tempArray[1].attackPower * randomNum2);
 		tempArray[0].health = counterAttack;
 
-		console.log(tempArray[0].health);
-		console.log(tempArray[1].health);
-
 		if (tempArray[0].health <= 0) {
 			$('.playerChoice').empty();
 			console.log('You Lost');
@@ -137,8 +138,11 @@ function figthSequence() {
 			$('.defender').empty();
 			console.log('choose next opponent');
 			return;
-
 		} 
+
+		$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuenow', tempArray[0].health);
+		$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
+		$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuenow', tempArray[1].health);	
 	})
 }
 
