@@ -43,9 +43,33 @@ function displayCharacters () {
 
 		 $('.dropContent').append(li);
 	}
+}
+function displayStats () {
+	$('.characterList').hover(function(){
 
-	$('#buttons').mouseenter(function(){
+		$('ul').removeClass('noDisplay');
 
+		if (this.id == 0) {
+			$('ul li:eq(0)').append('Character Name: ' + obiWan.name);
+			$('ul li:eq(1)').append('Health: ' + obiWan.health);
+			$('ul li:eq(2)').append('Attack Power: ' + obiWan.attackPower);
+			$('ul li:eq(3)').append('Counter Attack Power: ' + obiWan.counterAttackPower);
+		} else if (this.id == 1) {
+			$('ul li:eq(0)').append('Character Name: ' + luke.name);
+			$('ul li:eq(1)').append('Health: ' + luke.health);
+			$('ul li:eq(2)').append('Attack Power: ' + luke.attackPower);
+			$('ul li:eq(3)').append('Counter Attack Power: ' + luke.counterAttackPower);
+		} else if (this.id == 2) {
+			$('ul li:eq(0)').append('Character Name: ' + sidious.name);
+			$('ul li:eq(1)').append('Health: ' + sidious.health);
+			$('ul li:eq(2)').append('Attack Power: ' + sidious.attackPower);
+			$('ul li:eq(3)').append('Counter Attack Power: ' + sidious.counterAttackPower);
+		} else if (this.id == 3) { 
+			$('ul li:eq(0)').append('Character Name: ' + maul.name);
+			$('ul li:eq(1)').append('Health: ' + maul.health);
+			$('ul li:eq(2)').append('Attack Power: ' + maul.attackPower);
+			$('ul li:eq(3)').append('Counter Attack Power: ' + maul.counterAttackPower);
+		}
 	})	
 }
 
@@ -114,6 +138,8 @@ function figthSequence() {
 $(document).ready(function() {
 
 	displayCharacters();
+
+	displayStats();
 
 	chooseCharacters();
 
