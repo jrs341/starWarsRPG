@@ -74,8 +74,11 @@ p {
   	box-shadow: none;
 }
 
-#displayStats {
-	
+#displayStats {	
+}
+
+.progress-bar {
+	float: right;
 }
 
 .playerChoice {
