@@ -97,7 +97,7 @@ function chooseCharacters()	{
 		$('p').removeClass('noDisplay');
 
 		if (fightSequenceArray.length === 1) {
-			$(this).appendTo('.playerChoice');
+			$(this).hide().appendTo('.playerChoice').fadeIn('slow');
 			$('ul').removeClass('noDisplayStatusPlayer');
 			$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
 			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
@@ -107,7 +107,7 @@ function chooseCharacters()	{
 				return;
 				}
 		} else if (fightSequenceArray.length === 2) {
-			$(this).appendTo('.defender');
+			$(this).hide().appendTo('.defender').fadeIn('slow');
 			$('ul').removeClass('noDisplayStatusDefender');
 			$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);
 		} else {
