@@ -98,6 +98,9 @@ function chooseCharacters()	{
 
 		if (fightSequenceArray.length === 1) {
 			$(this).appendTo('.playerChoice');
+			$('ul').removeClass('noDisplayStatusPlayer');
+			$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
+			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
 				if (tempArray[0].health <= 0) {
 				console.log('You Lost');
 				$('.playerChoice').remove();
@@ -105,13 +108,17 @@ function chooseCharacters()	{
 				}
 		} else if (fightSequenceArray.length === 2) {
 			$(this).appendTo('.defender');
+			$('ul').removeClass('noDisplayStatusDefender');
+			$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);
 		} else {
 			console.log('please choose attack or reset');
 		}
 
-		$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
-		$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
-		$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);	
+		// $('ul').removeClass('noDisplayStatusPlayer');
+
+		// $('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
+		// $('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
+		// $('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);	
 	})
 }
 

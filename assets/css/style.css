@@ -77,6 +77,14 @@ p {
 #displayStats {	
 }
 
+.noDisplayStatusPlayer {
+	display: none;
+}
+
+.noDisplayStatusDefender {
+	display: none;
+}
+
 .progress {
   	background-image: none;
 	background-color: #db5353;
