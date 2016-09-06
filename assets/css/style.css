@@ -77,8 +77,17 @@ p {
 #displayStats {	
 }
 
+.progress {
+  	background-image: none;
+	background-color: #db5353;
+	-webkit-box-shadow: none;
+  	box-shadow: none;
+}
+
 .progress-bar {
 	float: right;
+	background-image: none;
+	background-color: green;
 }
 
 .playerChoice {
