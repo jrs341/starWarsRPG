@@ -22,24 +22,36 @@ function displayCharacters () {
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
+		/*btn btn-default dropdown-toggle*/
+		// b.attr('data-toggle', dropdown);
+		// b.attr('aria-haspopup', true);
+		// b.attr('aria-expand', false);
 		b.attr('id', i); 
 		b.css('background-image', 'url(" '+ characters[i].img +'  ")');
-		b.text(characters[i].name);
+		// b.text(characters[i].name);
 		 $('#buttons').append(b);
-	}	
+	}
+
+	for (var i = 0; i < characters.length; i++) {
+		var li = $('<li>');
+		li.addClass('dropItems');
+		// b.attr('id', i); 
+		// b.css('background-image', 'url(" '+ characters[i].img +'  ")');
+		// li.text(characters[i].name);
+		li.text(characters[i].health);
+		li.text(characters[i].attackPower);
+
+		 $('.dropContent').append(li);
+	}
+
+	$('#buttons').mouseenter(function(){
+
+	})	
 }
 
 function chooseCharacters()	{
 	$('.characterList').on('click', function() {
 		fightSequenceArray.push(this);
-
-		if (fightSequenceArray.length === 1) {
-			$(this).appendTo('.playerChoice');
-		} else if (fightSequenceArray.length === 2) {
-			$(this).appendTo('.defender');
-		} else {
-			console.log('please choose attack or reset');
-		}
 
 		if (this.id == 0) {
 			tempArray.push(obiWan);
@@ -51,6 +63,19 @@ function chooseCharacters()	{
 			tempArray.push(maul);
 		}
 		console.log(tempArray);
+
+		if (fightSequenceArray.length === 1) {
+			$(this).appendTo('.playerChoice');
+				if (tempArray[0].health <= 0) {
+				console.log('You Lost');
+				$('.playerChoice').remove();
+				return;
+				}
+		} else if (fightSequenceArray.length === 2) {
+			$(this).appendTo('.defender');
+		} else {
+			console.log('please choose attack or reset');
+		}
 	})	
 }
 
@@ -70,11 +95,14 @@ function figthSequence() {
 		console.log(tempArray[1].health);
 
 		if (tempArray[0].health <= 0) {
+			$('.playerChoice').empty();
 			console.log('You Lost');
 			return;
 		}
 		else if (tempArray[1].health <= 0) {
-			fightSequenceArray.splice(1, 1);
+			tempArray.splice(1, 1);
+			fightSequenceArray.splice(1,1);
+			$('.defender').empty();
 			console.log('choose next opponent');
 			return;
 
