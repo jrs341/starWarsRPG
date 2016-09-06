@@ -50,7 +50,7 @@ p {
 }
 
 .display {
-	/*height: 20px;*/
+	height: 20px;
 	text-align: center;
 }
 
@@ -74,12 +74,17 @@ p {
   	box-shadow: none;
 }
 
+#displayStats {
+	
+}
+
 .playerChoice {
 }
 
 #attack{
-	position: fixed;
-	margin-left: 340px;
+	/*position: fixed;*/
+	/*margin-left: 340px;*/
+	/*text-align: left;*/
 	height: 50px;
 	width: 50px;
 	border: none;

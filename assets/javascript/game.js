@@ -32,17 +32,17 @@ function displayCharacters () {
 		 $('#buttons').append(b);
 	}
 
-	for (var i = 0; i < characters.length; i++) {
-		var li = $('<li>');
-		li.addClass('dropItems');
-		// b.attr('id', i); 
-		// b.css('background-image', 'url(" '+ characters[i].img +'  ")');
-		// li.text(characters[i].name);
-		li.text(characters[i].health);
-		li.text(characters[i].attackPower);
+	// for (var i = 0; i < characters.length; i++) {
+	// 	var li = $('<li>');
+	// 	li.addClass('dropItems');
+	// 	// b.attr('id', i); 
+	// 	// b.css('background-image', 'url(" '+ characters[i].img +'  ")');
+	// 	// li.text(characters[i].name);
+	// 	li.text(characters[i].health);
+	// 	li.text(characters[i].attackPower);
 
-		 $('.dropContent').append(li);
-	}
+	// 	 $('.dropContent').append(li);
+	// }
 }
 
 function displayStats () {
@@ -75,8 +75,8 @@ function displayStats () {
 
 	$('.characterList').mouseleave(function(){
 
-		$('ul').addClass('noDisplay');
-		$('ul li').empty();
+		$('#displayStats').addClass('noDisplay');
+		$('#displayStats li').empty();
 	})
 }
 
