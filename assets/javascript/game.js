@@ -83,8 +83,6 @@ function displayStats () {
 
 function chooseCharacters()	{
 
-		$('p').append('character');
-
 	$('.characterList').on('click', function() {
 		fightSequenceArray.push(this);
 
@@ -100,32 +98,22 @@ function chooseCharacters()	{
 
 		if (fightSequenceArray.length === 1) {
 			$(this).hide().appendTo('.playerChoice').fadeIn('slow');
+			$('#instructionBar').empty();
+			$('#instructionBar').append('Choose your opponent');
 			$('ul').removeClass('noDisplayStatusPlayer');
 			$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
 			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
 
-			var str = $('p').text();
-			str.replace('character','opponent');
-			$('p').text(str);
-
-				if (tempArray[0].health <= 0) {
-				console.log('You Lost');
-				$('.playerChoice').fadeOut('slow');
-				$('.playerChoice').append('You Lose');
-				}
 		} else if (fightSequenceArray.length === 2) {
 			$(this).hide().appendTo('.defender').fadeIn('slow');
+			$('#instructionBar').empty();
 			$('ul').removeClass('noDisplayStatusDefender');
 			$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);
 			$('#attack').hide().removeClass('noDisplay').fadeIn('slow');
 		} else {
+			location.reload();
 			console.log('please choose attack or reset');
 		}
-		// $('ul').removeClass('noDisplayStatusPlayer');
-
-		// $('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
-		// $('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
-		// $('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);	
 	})
 }
 
@@ -142,16 +130,18 @@ function figthSequence() {
 		tempArray[0].health = counterAttack;
 
 		if (tempArray[0].health <= 0) {
+			$('#instructionBar').empty();
+			$('#instructionBar').append('You Lost click any character to restart');
 			$('.playerChoice').empty();
-			console.log('You Lost');
 			return;
 		}
 		else if (tempArray[1].health <= 0) {
 			tempArray.splice(1, 1);
 			fightSequenceArray.splice(1,1);
+			$('#instructionBar').empty();
+			$('#instructionBar').append('Choose your opponent');
 			$('.defender').empty();
 			$('#defenderStatus').addClass('noDisplayStatusDefender');
-			console.log('choose next opponent');
 			return;
 		} 
 
