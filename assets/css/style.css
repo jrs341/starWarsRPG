@@ -113,6 +113,10 @@ p {
 .playerChoice {
 }
 
+#attackButtonSpace {
+	height: 50px;
+}
+
 #attack{
 	/*position: fixed;*/
 	/*margin-left: 340px;*/

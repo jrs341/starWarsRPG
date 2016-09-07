@@ -19,6 +19,7 @@ var fightSequenceArray = [];
 var tempArray = [];
 
 function displayCharacters () {
+
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
@@ -81,6 +82,9 @@ function displayStats () {
 }
 
 function chooseCharacters()	{
+
+		$('p').append('character');
+
 	$('.characterList').on('click', function() {
 		fightSequenceArray.push(this);
 
@@ -94,26 +98,29 @@ function chooseCharacters()	{
 			tempArray.push(maul);
 		}
 
-		$('p').removeClass('noDisplay');
-
 		if (fightSequenceArray.length === 1) {
 			$(this).hide().appendTo('.playerChoice').fadeIn('slow');
 			$('ul').removeClass('noDisplayStatusPlayer');
 			$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
 			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
+
+			var str = $('p').text();
+			str.replace('character','opponent');
+			$('p').text(str);
+
 				if (tempArray[0].health <= 0) {
 				console.log('You Lost');
-				$('.playerChoice').remove();
-				return;
+				$('.playerChoice').fadeOut('slow');
+				$('.playerChoice').append('You Lose');
 				}
 		} else if (fightSequenceArray.length === 2) {
 			$(this).hide().appendTo('.defender').fadeIn('slow');
 			$('ul').removeClass('noDisplayStatusDefender');
 			$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);
+			$('#attack').hide().removeClass('noDisplay').fadeIn('slow');
 		} else {
 			console.log('please choose attack or reset');
 		}
-
 		// $('ul').removeClass('noDisplayStatusPlayer');
 
 		// $('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
