@@ -104,12 +104,44 @@ function chooseCharacters()	{
 			$('#playerHealth').width(tempArray[0].health + '%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
 			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
 
+			if (this.id == 0) {
+			$('ul.playerStats li:eq(0)').append('Character Name: ' + obiWan.name);
+			$('ul.playerStats li:eq(1)').append('Health: ' + obiWan.health);
+			$('ul.playerStats li:eq(3)').append('Attack Power: ' + obiWan.attackPower);
+		} else if (this.id == 1) {
+			$('ul.playerStats li:eq(0)').append('Character Name: ' + luke.name);
+			$('ul.playerStats li:eq(1)').append('Health: ' + luke.health);
+			$('ul.playerStats li:eq(3)').append('Attack Power: ' + luke.attackPower);
+		} else if (this.id == 2) {
+			$('ul.playerStats li:eq(0)').append('Character Name: ' + sidious.name);
+			$('ul.playerStats li:eq(1)').append('Health: ' + sidious.health);
+			$('ul.playerStats li:eq(3)').append('Attack Power: ' + sidious.attackPower);
+		} else { 
+			$('ul.playerStats li:eq(0)').append('Character Name: ' + maul.name);
+			$('ul.playerStats li:eq(1)').append('Health: ' + maul.health);
+			$('ul.playerStats li:eq(3)').append('Attack Power: ' + maul.attackPower);
+		}
+
 		} else if (fightSequenceArray.length === 2) {
 			$(this).hide().appendTo('.defender').fadeIn('slow');
 			$('#instructionBar').empty();
 			$('ul').removeClass('noDisplayStatusDefender');
 			$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuemax', tempArray[1].health).attr('aria-valuenow', tempArray[1].health);
 			$('#attack').hide().removeClass('noDisplay').fadeIn('slow');
+
+			if (this.id == 0) {
+			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + obiWan.name);
+			$('ul.defenderStatus li:eq(1)').append('Health: ' + obiWan.health);
+			} else if (this.id == 1) {
+			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + luke.name);
+			$('ul.defenderStatus li:eq(1)').append('Health: ' + luke.health);
+			} else if (this.id == 2) {
+			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + sidious.name);
+			$('ul.defenderStatus li:eq(1)').append('Health: ' + sidious.health);
+			} else { 
+			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + maul.name);
+			$('ul.defenderStatus li:eq(1)').append('Health: ' + maul.health);
+			}
 		} else {
 			location.reload();
 			console.log('please choose attack or reset');
@@ -141,7 +173,9 @@ function figthSequence() {
 			$('#instructionBar').empty();
 			$('#instructionBar').append('Choose your opponent');
 			$('.defender').empty();
-			$('#defenderStatus').addClass('noDisplayStatusDefender');
+			$('ul.defenderStatus li:eq(0)').empty();
+			$('ul.defenderStatus li:eq(1)').empty();
+			$('.defenderStatus').addClass('noDisplayStatusDefender');
 			return;
 		} 
 

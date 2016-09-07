@@ -15,8 +15,9 @@ body {
 }
 
 header {
-	font-size: 30px;
-	color: white;
+	font-family: Georgia;
+	font-size: 40px;
+	color: #e5c100;
 	text-align: center;
 }
 
@@ -24,12 +25,10 @@ header {
 	border-bottom: none;
 }
 
-p {
-	color: white;
-}
-
 #instructionBar {
-	
+	font-family: courier;
+	color: #4cbb17;
+	font-size: 20px;
 }
 
 #buttons {
@@ -59,16 +58,12 @@ p {
 }
 
 .characterList {
-	height: 300px;
+	height: 285px;
 	width: 200px;
 	margin: 20px;
 	background: transparent;
 	background-repeat: no-repeat;
-	background-position: -10px bottom;
 	border: none;
-	vertical-align: text-top;
-	padding-bottom: 250px;
-	color: yellow;
 }
 
 .characterList:focus, .characterList:active, .characterList.active, .characterList:focus:active {
@@ -78,11 +73,19 @@ p {
   	box-shadow: none;
 }
 
-#displayStats {	
+#displayStats {
+	font-family: courier;
+	color: #4cbb17;
+	font-size: 20px;
+	margin-top: 100px;	
 }
 
 .noDisplayStatusPlayer {
 	display: none;
+}
+
+.playerStats {
+	color: #e5c100;
 }
 
 .noDisplayStatusDefender {
@@ -99,7 +102,7 @@ p {
 .progress-bar {
 	float: right;
 	background-image: none;
-	background-color: green;
+	background-color: #4cbb17;
 }
 
 #playerHealth {
@@ -111,7 +114,8 @@ p {
 #defenderHealth {
 }
 
-#defenderStatus {
+.defenderStatus {
+	color: #e5c100;
 }
 
 .playerChoice {
