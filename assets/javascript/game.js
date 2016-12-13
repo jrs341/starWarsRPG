@@ -2,12 +2,12 @@
 function character(characterName, health, attackPower, counterAttackPower, img) {
 	this.name = characterName;
 	this.health = health;
-	this.attackPower = attackPower
+	this.attackPower = attackPower;
 	this.counterAttackPower = counterAttackPower;
 	this.img = img;
 }
 
-var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, 'assets/images/obi.jpeg');
+var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, 'assets/images/obi.png');
 var luke = new character('Luke Skywalker' , 100, 6, 37.5, 'assets/images/luke.ico');
 var sidious = new character('Darth Sidious', 150, 6, 10, 'assets/images/sidious.ico');
 var maul = new character('Darth Maul', 180, 6, 10, 'assets/images/maul.png');
@@ -144,7 +144,6 @@ function chooseCharacters()	{
 			}
 		} else {
 			location.reload();
-			console.log('please choose attack or reset');
 		}
 	})
 }
@@ -156,6 +155,7 @@ function figthSequence() {
 		var randomNum = Math.floor((Math.random() * 5)+1);
 		var attack = tempArray[1].health - (tempArray[0].attackPower * randomNum);
 		tempArray[1].health = attack;
+		// tempArray[0].attackPower++;
 
 		var randomNum2 = Math.floor((Math.random() * 5) +1);
 		var counterAttack = tempArray[0].health - (tempArray[1].attackPower * randomNum2);
