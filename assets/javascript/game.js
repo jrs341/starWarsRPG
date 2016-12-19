@@ -6,10 +6,10 @@
 
 var fightSequenceArray = [];
 var tempArray = [];
-var obiWan = new character('Obi-Wan Kenobi', 120 , 20, 30, 'assets/images/obi.png');
-var luke = new character('Luke Skywalker' , 100, 30, 40, 'assets/images/luke.ico');
-var sidious = new character('Darth Sidious', 150, 15, 20, 'assets/images/sidious.ico');
-var maul = new character('Darth Maul', 180, 10, 15, 'assets/images/maul.png');
+var obiWan = new character('Obi-Wan Kenobi', 120 , 7, 20, 'assets/images/obi.png');
+var luke = new character('Luke Skywalker' , 100, 10, 25, 'assets/images/luke.ico');
+var sidious = new character('Darth Sidious', 150, 6, 15, 'assets/images/sidious.ico');
+var maul = new character('Darth Maul', 180, 5, 10, 'assets/images/maul.png');
 
 var characters = [];
 characters.push(obiWan, luke, sidious, maul);
@@ -17,6 +17,8 @@ characters.push(obiWan, luke, sidious, maul);
 var pHealth = 0;
 
 var dHealth = 0;
+
+var baseAttackPower = 0;
 
 // FUNCTIONS
 // ===================================================================================
@@ -38,6 +40,7 @@ function character(characterName, health, attackPower, counterAttackPower, img) 
 		$('ul.playerStats li:eq(1)').append('Health: ' + this.health);
 		$('ul.playerStats li:eq(3)').append('Attack Power: ' + this.attackPower);
 		pHealth = this.health;
+		baseAttackPower = this.attackPower;
 	};
 	this.defenderStats = function() {
 		$('ul.defenderStatus li:eq(0)').append('Character Name: ' + this.name);
@@ -143,16 +146,16 @@ function figthSequence() {
 
 	$('#attack').on('click', function() {
 
-		var randomNum = Math.floor((Math.random() * 3)+1);
-		console.log(randomNum);
-		var attack = tempArray[1].health - (tempArray[0].attackPower * randomNum);
+		// var randomNum = Math.floor((Math.random() * 3)+1);
+		// console.log(randomNum);
+		var attack = tempArray[1].health - tempArray[0].attackPower;
 		tempArray[1].health = attack;
-		tempArray[0].attackPower = tempArray[0].attackPower + 10;
+		tempArray[0].attackPower = tempArray[0].attackPower + baseAttackPower;
 		console.log(tempArray[0].attackPower);
 
-		var randomNum2 = Math.floor((Math.random() * 2) +1);
-		console.log(randomNum2);
-		var counterAttack = tempArray[0].health - (tempArray[1].counterAttackPower * randomNum2);
+		// var randomNum2 = Math.floor((Math.random() * 2) +1);
+		// console.log(randomNum2);
+		var counterAttack = tempArray[0].health - tempArray[1].counterAttackPower;
 		tempArray[0].health = counterAttack;
 
 		if (tempArray[0].health <= 0) {
