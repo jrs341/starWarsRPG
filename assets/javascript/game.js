@@ -1,12 +1,11 @@
 
-function character(characterName, health, attackPower, counterAttackPower, img) {
-	this.name = characterName;
-	this.health = health;
-	this.attackPower = attackPower;
-	this.counterAttackPower = counterAttackPower;
-	this.img = img;
-}
 
+// GLOBAL VARIABLES
+// =================================================================================
+
+
+var fightSequenceArray = [];
+var tempArray = [];
 var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, 'assets/images/obi.png');
 var luke = new character('Luke Skywalker' , 100, 6, 37.5, 'assets/images/luke.ico');
 var sidious = new character('Darth Sidious', 150, 6, 10, 'assets/images/sidious.ico');
@@ -15,8 +14,16 @@ var maul = new character('Darth Maul', 180, 6, 10, 'assets/images/maul.png');
 var characters = [];
 characters.push(obiWan, luke, sidious, maul);
 
-var fightSequenceArray = [];
-var tempArray = [];
+// FUNCTIONS
+// ===================================================================================
+
+function character(characterName, health, attackPower, counterAttackPower, img) {
+	this.name = characterName;
+	this.health = health;
+	this.attackPower = attackPower;
+	this.counterAttackPower = counterAttackPower;
+	this.img = img;
+}
 
 function displayCharacters () {
 
@@ -184,6 +191,8 @@ function figthSequence() {
 		$('#defenderHealth').width(tempArray[1].health + '%').attr('aria-valuenow', tempArray[1].health);	
 	})
 }
+
+// ================================================================================
 
 $(document).ready(function() {
 
