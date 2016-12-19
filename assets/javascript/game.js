@@ -6,10 +6,10 @@
 
 var fightSequenceArray = [];
 var tempArray = [];
-var obiWan = new character('Obi-Wan Kenobi', 120 , 6, 15.5, 'assets/images/obi.png');
-var luke = new character('Luke Skywalker' , 100, 6, 37.5, 'assets/images/luke.ico');
-var sidious = new character('Darth Sidious', 150, 6, 10, 'assets/images/sidious.ico');
-var maul = new character('Darth Maul', 180, 6, 10, 'assets/images/maul.png');
+var obiWan = new character('Obi-Wan Kenobi', 120 , 20, 30, 'assets/images/obi.png');
+var luke = new character('Luke Skywalker' , 100, 30, 40, 'assets/images/luke.ico');
+var sidious = new character('Darth Sidious', 150, 15, 20, 'assets/images/sidious.ico');
+var maul = new character('Darth Maul', 180, 10, 15, 'assets/images/maul.png');
 
 var characters = [];
 characters.push(obiWan, luke, sidious, maul);
@@ -27,6 +27,23 @@ function character(characterName, health, attackPower, counterAttackPower, img) 
 	this.attackPower = attackPower;
 	this.counterAttackPower = counterAttackPower;
 	this.img = img;
+	this.displayStats = function() {
+		$('ul li:eq(0)').append('Character Name: ' + this.name);
+		$('ul li:eq(1)').append('Health: ' + this.health);
+		$('ul li:eq(2)').append('Attack Power: ' + this.attackPower);
+		$('ul li:eq(3)').append('Counter Attack Power: ' + this.counterAttackPower);
+	};
+	this.playerStats = function() {
+		$('ul.playerStats li:eq(0)').append('Character Name: ' + this.name);
+		$('ul.playerStats li:eq(1)').append('Health: ' + this.health);
+		$('ul.playerStats li:eq(3)').append('Attack Power: ' + this.attackPower);
+		pHealth = this.health;
+	};
+	this.defenderStats = function() {
+		$('ul.defenderStatus li:eq(0)').append('Character Name: ' + this.name);
+		$('ul.defenderStatus li:eq(1)').append('Health: ' + this.health);
+		dHealth = this.health;
+	}
 }
 
 function displayCharacters () {
@@ -34,54 +51,26 @@ function displayCharacters () {
 	for (var i = 0; i < characters.length; i++) {
 		var b = $('<button>');
 		b.addClass('characterList');
-		/*btn btn-default dropdown-toggle*/
-		// b.attr('data-toggle', dropdown);
-		// b.attr('aria-haspopup', true);
-		// b.attr('aria-expand', false);
 		b.attr('id', i); 
 		b.css('background-image', 'url(" '+ characters[i].img +'  ")');
-		// b.text(characters[i].name);
-		 $('#buttons').append(b);
+		$('#buttons').append(b);
 	}
-
-	// for (var i = 0; i < characters.length; i++) {
-	// 	var li = $('<li>');
-	// 	li.addClass('dropItems');
-	// 	// b.attr('id', i); 
-	// 	// b.css('background-image', 'url(" '+ characters[i].img +'  ")');
-	// 	// li.text(characters[i].name);
-	// 	li.text(characters[i].health);
-	// 	li.text(characters[i].attackPower);
-
-	// 	 $('.dropContent').append(li);
-	// }
 }
 
 function displayStats () {
+
 	$('.characterList').mouseenter(function(){
 
 		$('ul').removeClass('noDisplay');
 
 		if (this.id == 0) {
-			$('ul li:eq(0)').append('Character Name: ' + obiWan.name);
-			$('ul li:eq(1)').append('Health: ' + obiWan.health);
-			$('ul li:eq(2)').append('Attack Power: ' + obiWan.attackPower);
-			$('ul li:eq(3)').append('Counter Attack Power: ' + obiWan.counterAttackPower);
+			obiWan.displayStats();
 		} else if (this.id == 1) {
-			$('ul li:eq(0)').append('Character Name: ' + luke.name);
-			$('ul li:eq(1)').append('Health: ' + luke.health);
-			$('ul li:eq(2)').append('Attack Power: ' + luke.attackPower);
-			$('ul li:eq(3)').append('Counter Attack Power: ' + luke.counterAttackPower);
+			luke.displayStats();
 		} else if (this.id == 2) {
-			$('ul li:eq(0)').append('Character Name: ' + sidious.name);
-			$('ul li:eq(1)').append('Health: ' + sidious.health);
-			$('ul li:eq(2)').append('Attack Power: ' + sidious.attackPower);
-			$('ul li:eq(3)').append('Counter Attack Power: ' + sidious.counterAttackPower);
+			sidious.displayStats();
 		} else if (this.id == 3) { 
-			$('ul li:eq(0)').append('Character Name: ' + maul.name);
-			$('ul li:eq(1)').append('Health: ' + maul.health);
-			$('ul li:eq(2)').append('Attack Power: ' + maul.attackPower);
-			$('ul li:eq(3)').append('Counter Attack Power: ' + maul.counterAttackPower);
+			maul.displayStats();
 		}
 	})
 
@@ -114,30 +103,18 @@ function chooseCharacters()	{
 			$('#instructionBar').append('Choose your opponent');
 			$('ul').removeClass('noDisplayStatusPlayer');
 			$('#playerHealth').width('100%').attr('aria-valuemax', tempArray[0].health).attr('aria-valuenow', tempArray[0].health);
-			// 
-			$('#playerAttackPower').width((tempArray[0].attackPower*10) + '%').attr('aria-valuenow', tempArray[0].attackPower*10);
+			$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
+
 
 			if (this.id == 0) {
-			$('ul.playerStats li:eq(0)').append('Character Name: ' + obiWan.name);
-			$('ul.playerStats li:eq(1)').append('Health: ' + obiWan.health);
-			$('ul.playerStats li:eq(3)').append('Attack Power: ' + obiWan.attackPower);
-			pHealth = obiWan.health;
-		} else if (this.id == 1) {
-			$('ul.playerStats li:eq(0)').append('Character Name: ' + luke.name);
-			$('ul.playerStats li:eq(1)').append('Health: ' + luke.health);
-			$('ul.playerStats li:eq(3)').append('Attack Power: ' + luke.attackPower);
-			pHealth = luke.health;
-		} else if (this.id == 2) {
-			$('ul.playerStats li:eq(0)').append('Character Name: ' + sidious.name);
-			$('ul.playerStats li:eq(1)').append('Health: ' + sidious.health);
-			$('ul.playerStats li:eq(3)').append('Attack Power: ' + sidious.attackPower);
-			pHealth = sidious.health;
-		} else { 
-			$('ul.playerStats li:eq(0)').append('Character Name: ' + maul.name);
-			$('ul.playerStats li:eq(1)').append('Health: ' + maul.health);
-			$('ul.playerStats li:eq(3)').append('Attack Power: ' + maul.attackPower);
-			pHealth = maul.health;
-		}
+				obiWan.playerStats();
+			} else if (this.id == 1) {
+				luke.playerStats();
+			} else if (this.id == 2) {
+				sidious.playerStats();
+			} else if (this.id == 3) { 
+				maul.playerStats();
+			}
 
 		} else if (fightSequenceArray.length === 2) {
 			$(this).hide().appendTo('.defender').fadeIn('slow');
@@ -147,22 +124,15 @@ function chooseCharacters()	{
 			$('#attack').hide().removeClass('noDisplay').fadeIn('slow');
 
 			if (this.id == 0) {
-			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + obiWan.name);
-			$('ul.defenderStatus li:eq(1)').append('Health: ' + obiWan.health);
-			dHealth = obiWan.health;
+				obiWan.defenderStats();
 			} else if (this.id == 1) {
-			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + luke.name);
-			$('ul.defenderStatus li:eq(1)').append('Health: ' + luke.health);
-			dHealth = luke.health;
+				luke.defenderStats();
 			} else if (this.id == 2) {
-			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + sidious.name);
-			$('ul.defenderStatus li:eq(1)').append('Health: ' + sidious.health);
-			dHealth = sidious.health;
-			} else { 
-			$('ul.defenderStatus li:eq(0)').append('Character Name: ' + maul.name);
-			$('ul.defenderStatus li:eq(1)').append('Health: ' + maul.health);
-			dHealth = maul.health;
+				sidious.defenderStats();
+			} else if (this.id == 3) { 
+				maul.defenderStats();
 			}
+
 		} else {
 			location.reload();
 		}
@@ -173,13 +143,16 @@ function figthSequence() {
 
 	$('#attack').on('click', function() {
 
-		var randomNum = Math.floor((Math.random() * 5)+1);
+		var randomNum = Math.floor((Math.random() * 3)+1);
+		console.log(randomNum);
 		var attack = tempArray[1].health - (tempArray[0].attackPower * randomNum);
 		tempArray[1].health = attack;
-		// tempArray[0].attackPower++;
+		tempArray[0].attackPower = tempArray[0].attackPower + 10;
+		console.log(tempArray[0].attackPower);
 
-		var randomNum2 = Math.floor((Math.random() * 5) +1);
-		var counterAttack = tempArray[0].health - (tempArray[1].attackPower * randomNum2);
+		var randomNum2 = Math.floor((Math.random() * 2) +1);
+		console.log(randomNum2);
+		var counterAttack = tempArray[0].health - (tempArray[1].counterAttackPower * randomNum2);
 		tempArray[0].health = counterAttack;
 
 		if (tempArray[0].health <= 0) {
@@ -202,8 +175,7 @@ function figthSequence() {
 		} 
 
 		$('#playerHealth').width((tempArray[0].health/pHealth)*100 + '%').attr('aria-valuenow', tempArray[0].health);
-
-		$('#playerAttackPower').width(tempArray[0].attackPower*10 + '%').attr('aria-valuenow', tempArray[0].attackPower);
+		$('#playerAttackPower').width(tempArray[0].attackPower + '%').attr('aria-valuenow', tempArray[0].attackPower);
 		$('#defenderHealth').width((tempArray[1].health/dHealth)*100 + '%').attr('aria-valuenow', tempArray[1].health);	
 	})
 }
