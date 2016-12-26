@@ -1,7 +1,3 @@
-vim: syntax=html:
-vim: syntax=jQuery:
-// vim: set filetype=prolog:
-vim: set ft=css:
 
 // GLOBAL VARIABLES
 // =================================================================================
